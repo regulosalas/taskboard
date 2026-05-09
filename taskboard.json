@@ -1,15 +1,6 @@
 {
   "backlog": [
     {
-      "title": "Investigar opciones de hospedaje web económico",
-      "priority": "baja",
-      "tags": [
-        "research"
-      ],
-      "created": "2026-05-09",
-      "estimate": null
-    },
-    {
       "title": "Reconfigurar iMessage cuando OpenClaw publique fix del loop (bug ) — revisión diaria 10am vía cron",
       "priority": "importante",
       "tags": [
@@ -20,7 +11,9 @@
       "estimate": null
     }
   ],
-  "todo": [
+  "todo": [],
+  "in_progress": [],
+  "done": [
     {
       "title": "Probar la URL del TaskBoard en el celular",
       "priority": "importante",
@@ -39,7 +32,5 @@
       "created": "2026-05-09",
       "estimate": "30m"
     }
-  ],
-  "in_progress": [],
-  "done": []
+  ]
 }
