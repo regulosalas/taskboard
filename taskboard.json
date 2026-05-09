@@ -8,6 +8,16 @@
       ],
       "created": "2026-05-09",
       "estimate": null
+    },
+    {
+      "title": "Reconfigurar iMessage cuando OpenClaw publique fix del loop (bug ) — revisión diaria 10am vía cron",
+      "priority": "importante",
+      "tags": [
+        "63386",
+        "config"
+      ],
+      "created": "2026-05-09",
+      "estimate": null
     }
   ],
   "todo": [
