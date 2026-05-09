@@ -1,6 +1,26 @@
 {
-  "backlog": [],
-  "todo": [],
+  "backlog": [
+    {
+      "title": "Investigar opciones de hospedaje web económico",
+      "priority": "baja",
+      "tags": [
+        "research"
+      ],
+      "created": "2026-05-09",
+      "estimate": null
+    }
+  ],
+  "todo": [
+    {
+      "title": "Probar la URL del TaskBoard en el celular",
+      "priority": "importante",
+      "tags": [
+        "config"
+      ],
+      "created": "2026-05-09",
+      "estimate": "10m"
+    }
+  ],
   "in_progress": [],
   "done": []
 }
