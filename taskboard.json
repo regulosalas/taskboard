@@ -29,6 +29,15 @@
       ],
       "created": "2026-05-09",
       "estimate": "10m"
+    },
+    {
+      "title": "Sincronizar TASKBOARD.md a GitHub Pages automáticamente",
+      "priority": "importante",
+      "tags": [
+        "config"
+      ],
+      "created": "2026-05-09",
+      "estimate": "30m"
     }
   ],
   "in_progress": [],
