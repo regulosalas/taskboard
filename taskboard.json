@@ -4,12 +4,12 @@
   "in_progress": [],
   "done": [
     {
-      "title": "Título @prioridad",
-      "priority": "normal",
+      "title": "Descripción",
+      "priority": "urgente",
       "tags": [
-        "categoria"
+        "automation"
       ],
-      "created": "YYYY-MM-DD",
+      "created": "2026-05-09",
       "estimate": "30m"
     }
   ]

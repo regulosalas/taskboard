@@ -50,10 +50,11 @@ for (const line of lines) {
     const status = statusMatch ? statusMatch[1] : " ";
     let taskText = trimmed.replace(/^-\s*\[[ >x]\]\s*/, "").trim();
 
-    // Skip comment-like lines
+    // Skip comment-like, placeholder, and example lines
     if (taskText.startsWith("//") || taskText.startsWith("#")) continue;
-    if (taskText.startsWith("Tarea") && taskText.includes("acá")) continue;
-    if (taskText.startsWith("Idea") && taskText.includes("acá")) continue;
+    if (taskText.includes("acá")) continue;
+    if (taskText.includes("YYYY-MM-DD") || taskText.includes("Título")) continue;
+    if (taskText.startsWith("tarea") || taskText.startsWith("idea")) continue;
 
     // Determine priority from text
     let priority = "normal";
