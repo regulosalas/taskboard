@@ -2,15 +2,5 @@
   "backlog": [],
   "todo": [],
   "in_progress": [],
-  "done": [
-    {
-      "title": "Descripción",
-      "priority": "urgente",
-      "tags": [
-        "automation"
-      ],
-      "created": "2026-05-09",
-      "estimate": "30m"
-    }
-  ]
+  "done": []
 }
