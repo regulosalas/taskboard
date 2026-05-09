@@ -212,40 +212,16 @@ function renderBoard(data) {
         const isDone = col.key === 'done';
         card.className = `card${isDone ? ' done-card' : ''}`;
 
-        let title = task.text || task.title || task;
-        let metaLines = [];
+        // Usar campos estructurados del JSON directamente
+        const title = task.title || 'tarea';
+        const priority = task.priority || 'normal';
+        const tags = task.tags || [];
+        const created = task.created || null;
+        const estimate = task.estimate || null;
 
-        // Extract priority from title
-        let priority = 'normal';
-        if (title.includes('@urgente')) { priority = 'urgente'; title = title.replace('@urgente', ''); }
-        else if (title.includes('@importante')) { priority = 'importante'; title = title.replace('@importante', ''); }
-        else if (title.includes('@baja')) { priority = 'baja'; title = title.replace('@baja', ''); }
-        title = title.replace('@normal', '');
-
-        // Extract estimate
-        const estMatch = title.match(/@estimado:([\dhms]+)/);
-        if (estMatch) {
-          metaLines.push(`⏱ ${estMatch[1]}`);
-          title = title.replace(estMatch[0], '');
-        }
-
-        // Extract created date
-        const dateMatch = title.match(/\(creada:\s*([^)]+)\)/);
-        if (dateMatch) {
-          metaLines.push(`📅 ${dateMatch[1]}`);
-          title = title.replace(dateMatch[0], '');
-        }
-
-        // Extract tags
-        const tags = [];
-        const tagMatch = title.match(/#(\w+)/g);
-        if (tagMatch) tags.push(...tagMatch.map(t => t.replace('#', '')));
-        title = title.replace(/#\w+/g, '').replace(/\s+/g, ' ').trim();
-        title = title.replace(/^-\s*\[\s*\]\s*/, '');
-        title = title.replace(/^-\s*\[>\s*\]\s*/, '');
-        title = title.replace(/^-\s*\[x\s*\]\s*/, '');
-
-        if (!title) title = task.text || task.title || 'tarea';
+        const metaLines = [];
+        if (estimate) metaLines.push(`⏱ ${estimate}`);
+        if (created) metaLines.push(`📅 ${created}`);
 
         card.className += ` priority-${priority}`;
 
