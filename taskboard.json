@@ -1,36 +1,83 @@
 {
   "backlog": [
     {
-      "title": "Reconfigurar iMessage cuando OpenClaw publique fix del loop (bug ) — revisión diaria 10am vía cron",
-      "priority": "importante",
+      "title": "**HA — Crear automatizaciones** (3: water leak, wastebin, litter level)",
+      "priority": "normal",
+      "tags": [],
+      "created": null,
+      "estimate": null
+    },
+    {
+      "title": "**Configurar acceso remoto a HA** (Cloudflare Tunnel u otra alternativa gratuita)",
+      "priority": "normal",
+      "tags": [],
+      "created": null,
+      "estimate": null
+    },
+    {
+      "title": "**Revisar fix de iMessage** (bug ) — chequeo diario 10am por cron",
+      "priority": "normal",
       "tags": [
-        "63386",
-        "config"
+        "63386"
       ],
-      "created": "2026-05-09",
+      "created": null,
       "estimate": null
     }
   ],
   "todo": [],
-  "in_progress": [],
+  "in_progress": [
+    {
+      "title": "**CONTROL TOTAL DE LA MAC**",
+      "priority": "urgente",
+      "tags": [
+        "research"
+      ],
+      "created": null,
+      "estimate": null
+    }
+  ],
   "done": [
     {
-      "title": "Probar la URL del TaskBoard en el celular",
-      "priority": "importante",
-      "tags": [
-        "config"
-      ],
-      "created": "2026-05-09",
-      "estimate": "10m"
+      "title": "Browser tool de OpenClaw probado — HA logueado y accesible vía Puppeteer",
+      "priority": "normal",
+      "tags": [],
+      "created": null,
+      "estimate": null
     },
     {
-      "title": "Sincronizar TASKBOARD.md a GitHub Pages automáticamente",
-      "priority": "importante",
-      "tags": [
-        "config"
-      ],
-      "created": "2026-05-09",
-      "estimate": "30m"
+      "title": "cliclick instalado y funcional en resolución 1920x1080",
+      "priority": "normal",
+      "tags": [],
+      "created": null,
+      "estimate": null
+    },
+    {
+      "title": "Puppeteer conectado al browser openclaw (puerto 18800) — control DOM completo",
+      "priority": "normal",
+      "tags": [],
+      "created": null,
+      "estimate": null
+    },
+    {
+      "title": "Ventana de HA en browser openclaw con sesión persistente (logueado como Regulo)",
+      "priority": "normal",
+      "tags": [],
+      "created": null,
+      "estimate": null
+    },
+    {
+      "title": "Detección de elementos shadow DOM en HA usando Puppeteer evaluate()",
+      "priority": "normal",
+      "tags": [],
+      "created": null,
+      "estimate": null
+    },
+    {
+      "title": "Clic en \"+ Create automation\" vía mouse events en shadow DOM funcionó (modal abierto)",
+      "priority": "normal",
+      "tags": [],
+      "created": null,
+      "estimate": null
     }
   ]
 }
