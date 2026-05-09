@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>📋 TaskBoard</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    padding: 16px;
+    min-height: 100vh;
+  }
+  h1 {
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  h1 small {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: normal;
+  }
+  .board {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .column {
+    background: #1a1a2e;
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #2a2a4a;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .column-header .count {
+    background: #2a2a4a;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #aaa;
+  }
+  .column-header .emoji { margin-right: 8px; }
+  .backlog .column-header { border-color: #6b7280; }
+  .backlog .column-header .emoji { color: #6b7280; }
+  .todo .column-header { border-color: #3b82f6; }
+  .todo .column-header .emoji { color: #3b82f6; }
+  .in-progress .column-header { border-color: #f59e0b; }
+  .in-progress .column-header .emoji { color: #f59e0b; }
+  .done .column-header { border-color: #22c55e; }
+  .done .column-header .emoji { color: #22c55e; }
+
+  .card {
+    background: #252540;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-left: 3px solid #3b82f6;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  .card:last-child { margin-bottom: 0; }
+  .card.priority-urgente { border-left-color: #ef4444; }
+  .card.priority-importante { border-left-color: #f59e0b; }
+  .card.priority-normal { border-left-color: #3b82f6; }
+  .card.priority-baja { border-left-color: #6b7280; }
+  .card.done-card { border-left-color: #22c55e; opacity: 0.7; text-decoration: line-through; }
+
+  .card-title { font-weight: 600; margin-bottom: 4px; }
+  .card-meta {
+    font-size: 0.75rem;
+    color: #888;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .tag {
+    background: #1a1a2e;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    color: #aaa;
+  }
+  .tag.urgente { background: #ef444422; color: #ef4444; }
+  .tag.importante { background: #f59e0b22; color: #f59e0b; }
+  .tag.normal { background: #3b82f622; color: #3b82f6; }
+  .tag.baja { background: #6b728022; color: #6b7280; }
+  .tag.automation { background: #8b5cf622; color: #8b5cf6; }
+  .tag.research { background: #06b6d422; color: #06b6d4; }
+  .tag.config { background: #a855f722; color: #a855f7; }
+  .tag.personal { background: #ec489922; color: #ec4899; }
+  .tag.finanzas { background: #10b98122; color: #10b981; }
+
+  .empty-state {
+    color: #555;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 20px 0;
+    font-style: italic;
+  }
+  .footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #2a2a4a;
+    font-size: 0.7rem;
+    color: #555;
+    text-align: center;
+  }
+  .loading {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+  }
+  .error {
+    text-align: center;
+    padding: 40px;
+    color: #ef4444;
+  }
+  @media (min-width: 768px) {
+    .board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
+  @media (min-width: 1100px) {
+    .board {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>
+  📋 TaskBoard
+  <small id="lastUpdate"></small>
+</h1>
+
+<div class="board" id="board">
+  <div class="loading">Cargando tareas...</div>
+</div>
+
+<div class="footer" id="footer">Cargado desde <strong>taskboard.json</strong></div>
+
+<script>
+async function loadTasks() {
+  const board = document.getElementById('board');
+  try {
+    const resp = await fetch('./taskboard.json');
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    renderBoard(data);
+  } catch(e) {
+    board.innerHTML = `<div class="error">❌ Error al cargar tareas: ${e.message}</div>`;
+  }
+}
+
+function renderBoard(data) {
+  const now = new Date();
+  document.getElementById('lastUpdate').textContent =
+    now.toLocaleString('es-US', { timeZone: 'America/New_York', hour12: true,
+      month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+  const columns = [
+    { key: 'backlog', emoji: '📦', title: 'Backlog', cls: 'backlog' },
+    { key: 'todo', emoji: '📋', title: 'To Do', cls: 'todo' },
+    { key: 'in_progress', emoji: '🔄', title: 'In Progress', cls: 'in-progress' },
+    { key: 'done', emoji: '✅', title: 'Done', cls: 'done' },
+  ];
+
+  const board = document.getElementById('board');
+  board.innerHTML = '';
+
+  for (const col of columns) {
+    const tasks = data[col.key] || [];
+    const colDiv = document.createElement('div');
+    colDiv.className = `column ${col.cls}`;
+
+    const header = document.createElement('div');
+    header.className = 'column-header';
+    header.innerHTML = `
+      <span><span class="emoji">${col.emoji}</span>${col.title}</span>
+      <span class="count">${tasks.length}</span>
+    `;
+    colDiv.appendChild(header);
+
+    if (tasks.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'empty-state';
+      empty.textContent = col.key === 'backlog' ? 'Sin ideas pendientes ✨' :
+                          col.key === 'todo' ? 'Todo listo, sin tareas 🎉' :
+                          col.key === 'in_progress' ? 'Nada en ejecución 💤' :
+                          'Nada completado aún 🔄';
+      colDiv.appendChild(empty);
+    } else {
+      for (const task of tasks) {
+        const card = document.createElement('div');
+        const isDone = col.key === 'done';
+        card.className = `card${isDone ? ' done-card' : ''}`;
+
+        let title = task.text || task.title || task;
+        let metaLines = [];
+
+        // Extract priority from title
+        let priority = 'normal';
+        if (title.includes('@urgente')) { priority = 'urgente'; title = title.replace('@urgente', ''); }
+        else if (title.includes('@importante')) { priority = 'importante'; title = title.replace('@importante', ''); }
+        else if (title.includes('@baja')) { priority = 'baja'; title = title.replace('@baja', ''); }
+        title = title.replace('@normal', '');
+
+        // Extract estimate
+        const estMatch = title.match(/@estimado:([\dhms]+)/);
+        if (estMatch) {
+          metaLines.push(`⏱ ${estMatch[1]}`);
+          title = title.replace(estMatch[0], '');
+        }
+
+        // Extract created date
+        const dateMatch = title.match(/\(creada:\s*([^)]+)\)/);
+        if (dateMatch) {
+          metaLines.push(`📅 ${dateMatch[1]}`);
+          title = title.replace(dateMatch[0], '');
+        }
+
+        // Extract tags
+        const tags = [];
+        const tagMatch = title.match(/#(\w+)/g);
+        if (tagMatch) tags.push(...tagMatch.map(t => t.replace('#', '')));
+        title = title.replace(/#\w+/g, '').replace(/\s+/g, ' ').trim();
+        title = title.replace(/^-\s*\[\s*\]\s*/, '');
+        title = title.replace(/^-\s*\[>\s*\]\s*/, '');
+        title = title.replace(/^-\s*\[x\s*\]\s*/, '');
+
+        if (!title) title = task.text || task.title || 'tarea';
+
+        card.className += ` priority-${priority}`;
+
+        card.innerHTML = `
+          <div class="card-title">${title}</div>
+          <div class="card-meta">
+            ${metaLines.map(m => `<span>${m}</span>`).join('')}
+            ${tags.map(t => `<span class="tag ${t}">#${t}</span>`).join('')}
+          </div>
+        `;
+        colDiv.appendChild(card);
+      }
+    }
+
+    board.appendChild(colDiv);
+  }
+}
+
+// Auto-refresh cada 60 segundos
+loadTasks();
+setInterval(loadTasks, 60000);
+</script>
+</body>
+</html>
