@@ -1,33 +1,10 @@
 {
   "backlog": [],
-  "todo": [
-    {
-      "title": "Tarea lista",
-      "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
-    }
-  ],
-  "in_progress": [
-    {
-      "title": "Tarea en curso",
-      "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
-    }
-  ],
+  "todo": [],
+  "in_progress": [],
   "done": [
     {
-      "title": "Tarea terminada",
-      "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
-    },
-    {
-      "title": "- [estado] Título @prioridad-alta",
+      "title": "Título @prioridad",
       "priority": "normal",
       "tags": [
         "categoria"
