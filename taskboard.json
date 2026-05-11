@@ -1,83 +1,237 @@
 {
+  "agents": {
+    "tony": {
+      "name": "Tony",
+      "avatar": "🦾",
+      "role": "Asistente principal — técnico"
+    },
+    "jessica": {
+      "name": "Jessica",
+      "avatar": "👩‍💼",
+      "role": "Estratega y operativa — Dealero.app"
+    },
+    "marcus": {
+      "name": "Marcus",
+      "avatar": "🏋️",
+      "role": "Coach fitness de Régulo"
+    }
+  },
   "backlog": [
     {
-      "title": "**HA — Crear automatizaciones** (3: water leak, wastebin, litter level)",
+      "title": "HA — Crear automatizaciones (3: water leak, wastebin, litter level)",
       "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
+      "tags": ["automation"],
+      "agent": "tony",
+      "created": "2026-05-09"
     },
     {
-      "title": "**Configurar acceso remoto a HA** (Cloudflare Tunnel u otra alternativa gratuita)",
+      "title": "Configurar acceso remoto a HA (Cloudflare Tunnel u otra alternativa gratuita)",
       "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
+      "tags": ["automation"],
+      "agent": "tony",
+      "created": "2026-05-09"
     },
     {
-      "title": "**Revisar fix de iMessage** (bug ) — chequeo diario 10am por cron",
+      "title": "Revisar fix de iMessage (bug #63386) — chequeo diario 10am por cron",
       "priority": "normal",
-      "tags": [
-        "63386"
-      ],
-      "created": null,
-      "estimate": null
+      "tags": ["bug"],
+      "agent": "tony",
+      "created": "2026-05-09"
+    },
+    {
+      "title": "Jessica: Investigar alternativas a HeyGen más económicas",
+      "priority": "normal",
+      "tags": ["dealero"],
+      "agent": "jessica",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Jessica: Plan de contenido semanal (qué ofertas publicar cada día)",
+      "priority": "normal",
+      "tags": ["dealero"],
+      "agent": "jessica",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Jessica: Estrategia de crecimiento TikTok/IG (hashtags, trends)",
+      "priority": "normal",
+      "tags": ["dealero"],
+      "agent": "jessica",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Jessica: Investigar otros programas de afiliados además de Amazon",
+      "priority": "normal",
+      "tags": ["dealero"],
+      "agent": "jessica",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Jessica: Investigar LinkTwin como alternativa a JoyLink (tiene API desde $5/mes)",
+      "priority": "normal",
+      "tags": ["dealero"],
+      "agent": "jessica",
+      "created": "2026-05-11"
     }
   ],
-  "todo": [],
+  "todo": [
+    {
+      "title": "Jessica: Determinar volumen de links/día y clicks/mes para cotizar Enterprise con JoyLink",
+      "priority": "alta",
+      "tags": ["dealero", "joylink"],
+      "agent": "jessica",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Jessica: Autorizar APIs de Meta y TikTok (login una vez)",
+      "priority": "alta",
+      "tags": ["dealero"],
+      "agent": "jessica",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Jessica: Suscribirse a HeyGen Creator ($24/mes) versión manual",
+      "priority": "alta",
+      "tags": ["dealero", "heygen"],
+      "agent": "jessica",
+      "created": "2026-05-11"
+    },
+    {
+      "title": "Jessica: Registrar Buffer (free) — conectar TikTok, IG, Facebook",
+      "priority": "alta",
+      "tags": ["dealero", "buffer"],
+      "agent": "jessica",
+      "created": "2026-05-11"
+    },
+    {
+      "title": "Jessica: Poner bonitas las redes (profile pic, bio, enlace al dominio)",
+      "priority": "media",
+      "tags": ["dealero"],
+      "agent": "jessica",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Marcus: Arranque oficial — Push Day + natación 20-25 min (Lunes 4pm)",
+      "priority": "alta",
+      "tags": ["fitness"],
+      "agent": "marcus",
+      "created": "2026-05-10"
+    }
+  ],
   "in_progress": [
     {
-      "title": "**CONTROL TOTAL DE LA MAC**",
+      "title": "CONTROL TOTAL DE LA MAC",
       "priority": "urgente",
-      "tags": [
-        "research"
-      ],
-      "created": null,
-      "estimate": null
+      "tags": ["research"],
+      "agent": "tony",
+      "created": "2026-05-09"
+    },
+    {
+      "title": "Jessica: Coordinar con Neil de JoyLink la cotización Enterprise",
+      "priority": "alta",
+      "tags": ["dealero", "joylink"],
+      "agent": "jessica",
+      "created": "2026-05-10"
     }
   ],
   "done": [
     {
       "title": "Browser tool de OpenClaw probado — HA logueado y accesible vía Puppeteer",
       "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
+      "tags": ["automation"],
+      "agent": "tony",
+      "created": "2026-05-09"
     },
     {
       "title": "cliclick instalado y funcional en resolución 1920x1080",
       "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
+      "tags": ["automation"],
+      "agent": "tony",
+      "created": "2026-05-09"
     },
     {
       "title": "Puppeteer conectado al browser openclaw (puerto 18800) — control DOM completo",
       "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
+      "tags": ["automation"],
+      "agent": "tony",
+      "created": "2026-05-09"
     },
     {
       "title": "Ventana de HA en browser openclaw con sesión persistente (logueado como Regulo)",
       "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
+      "tags": ["automation"],
+      "agent": "tony",
+      "created": "2026-05-09"
     },
     {
       "title": "Detección de elementos shadow DOM en HA usando Puppeteer evaluate()",
       "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
+      "tags": ["automation"],
+      "agent": "tony",
+      "created": "2026-05-09"
     },
     {
-      "title": "Clic en \"+ Create automation\" vía mouse events en shadow DOM funcionó (modal abierto)",
+      "title": "Clic en '+ Create automation' vía mouse events en shadow DOM funcionó",
       "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
+      "tags": ["automation"],
+      "agent": "tony",
+      "created": "2026-05-09"
+    },
+    {
+      "title": "JoyLink Pro pagado — $20/mes",
+      "priority": "alta",
+      "tags": ["dealero"],
+      "agent": "tony",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Amazon Associates creado — Store ID: dealeroapp20-20",
+      "priority": "alta",
+      "tags": ["dealero"],
+      "agent": "tony",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Instagram @dealero.app creado",
+      "priority": "alta",
+      "tags": ["dealero"],
+      "agent": "jessica",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "TikTok @dealero.app creado",
+      "priority": "alta",
+      "tags": ["dealero"],
+      "agent": "jessica",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Telegram Bot creado",
+      "priority": "alta",
+      "tags": ["dealero"],
+      "agent": "tony",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Dominio dealero.app registrado",
+      "priority": "alta",
+      "tags": ["dealero"],
+      "agent": "tony",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "MEMORY.md creado y CONTEXT.md actualizado — memoria persistente",
+      "priority": "alta",
+      "tags": ["system"],
+      "agent": "tony",
+      "created": "2026-05-10"
+    },
+    {
+      "title": "Jessica: TaskBoard creado con pipeline completo",
+      "priority": "alta",
+      "tags": ["dealero"],
+      "agent": "tony",
+      "created": "2026-05-11"
     }
   ]
 }
