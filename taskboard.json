@@ -1,27 +1,6 @@
 {
   "backlog": [
     {
-      "title": "**Jessica — Obtener API Key de HeyGen** (esperando decisión de Régulo sobre plan)",
-      "priority": "normal",
-      "tags": ["dealero", "jessica"],
-      "created": "2026-05-12",
-      "estimate": null
-    },
-    {
-      "title": "**Jessica — Automatizar publicación en Instagram** (requiere API Key de HeyGen primero)",
-      "priority": "normal",
-      "tags": ["dealero", "jessica"],
-      "created": "2026-05-12",
-      "estimate": null
-    },
-    {
-      "title": "**Marcus fitness** — arranca lunes 4pm Push Day + swimming",
-      "priority": "normal",
-      "tags": [],
-      "created": null,
-      "estimate": null
-    },
-    {
       "title": "**HA — Automatizaciones WhatsApp** (water leak, wastebin, petkit litter)",
       "priority": "normal",
       "tags": [],
@@ -38,33 +17,30 @@
     {
       "title": "**Revisar fix de iMessage** (bug ) — chequeo diario 10am por cron",
       "priority": "normal",
-      "tags": ["63386"],
+      "tags": [
+        "63386"
+      ],
+      "created": null,
+      "estimate": null
+    },
+    {
+      "title": "**Marcus fitness** — arranca lunes 4pm Push Day + swimming",
+      "priority": "normal",
+      "tags": [],
       "created": null,
       "estimate": null
     }
   ],
-  "todo": [
-    {
-      "title": "**Jessica — Editar sitio joylink.shop/dealero** (agregar secciones de ofertas diarias como Austin)",
-      "priority": "urgente",
-      "tags": ["dealero", "jessica"],
-      "created": "2026-05-12",
-      "estimate": null
-    },
-    {
-      "title": "**Jessica — Investigar ofertas del día** para llenar el sitio web",
-      "priority": "alta",
-      "tags": ["dealero", "jessica"],
-      "created": "2026-05-12",
-      "estimate": null
-    }
-  ],
+  "todo": [],
   "in_progress": [
     {
-      "title": "**Jessica — Configurar pipeline automatizado** (investigación → scripts → JoyLink → HeyGen)",
+      "title": "**Investigación: Amazon Afiliados en profundidad**",
       "priority": "urgente",
-      "tags": ["dealero", "jessica"],
-      "created": "2026-05-12",
+      "tags": [
+        "dealero",
+        "research"
+      ],
+      "created": null,
       "estimate": null
     },
     {
@@ -90,34 +66,6 @@
     }
   ],
   "done": [
-    {
-      "title": "**Jessica — Investigación completa: Amazon Associates** (contrato, reglas, comisiones, do's/don'ts) ✅",
-      "priority": "hecho",
-      "tags": ["dealero", "jessica"],
-      "created": "2026-05-12",
-      "estimate": null
-    },
-    {
-      "title": "**Jessica — Análisis de 9 cuentas Instagram de referencia** (dealcheats, reefrainaria, mikaylavallati, etc.) ✅",
-      "priority": "hecho",
-      "tags": ["dealero", "jessica"],
-      "created": "2026-05-12",
-      "estimate": null
-    },
-    {
-      "title": "**Jessica — JoyLink explorado y sitio joylink.shop/dealero creado** ✅",
-      "priority": "hecho",
-      "tags": ["dealero", "jessica"],
-      "created": "2026-05-12",
-      "estimate": null
-    },
-    {
-      "title": "**Jessica — Control de navegador vía Playwright + cliclick + OCR funcional** ✅",
-      "priority": "hecho",
-      "tags": ["dealero", "jessica"],
-      "created": "2026-05-12",
-      "estimate": null
-    },
     {
       "title": "**WhatsApp en HA funcionando** 🎉",
       "priority": "normal",
